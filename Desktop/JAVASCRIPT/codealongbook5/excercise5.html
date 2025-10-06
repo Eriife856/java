@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="excercise5.css">
+    <source>
+    <script src="excercise5.js"></script>
+</head>
+
+<body>
+    <p id="click">my browser</p>
+    <button onclick="clickMe ()">click me</button>
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+    <script>
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeBackgroundColor() {
+            let randomColor = getRandomColor();
+            document.body.style.backgroundColor = randomColor;
+
+
+
+        }
+
+        function clickMe() {
+            console.log("Button clicked");
+            let p = document.getElementById("click");
+
+            p.style.color = getRandomColor()
+        }
+        console.log("page loading")
+    </script>
+</body>
+
+</html>
+<!-- //excercise2 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Word Counter</title>
+        <style>
+            #counter {
+                margin-top: 10px;
+                font-weight: bold;
+            }
+
+            .warning {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h2>Type your text below:</h2>
+        <textarea id="textInput" rows="8" cols="50" onkeyup="updateCount()"></textarea>
+
+        <div id="counter">
+            Words: 0 | Characters: 0
+        </div>
+
+        <script>
+            function updateCount() {
+                const text = document.getElementById("textInput").value;
+
+                // Character count includes all characters
+                const charCount = text.length;
+
+                // Word count (removes extra spaces, splits by spaces/newlines)
+                const words = text.trim().split(/\s+/);
+                const wordCount = text.trim() === "" ? 0 : words.length;
+
+                // Update display
+                const counterDiv = document.getElementById("counter");
+                counterDiv.innerHTML = `Words: ${wordCount} | Characters: ${charCount}`;
+
+                // Highlight red if over 200 characters
+                if (charCount > 200) {
+                    counterDiv.classList.add("warning");
+                } else {
+                    counterDiv.classList.remove("warning");
+                }
+            }
+        </script>
+
+    
+
+</body>
+
+</html>
+
+
+<!-- //excercise3 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple log in form</title>
+</head>
+
+<body>
+    <h1>Login Form</h1>
+    <form id="loginForm">
+        <label for="">username</label>
+        <input type="text" placeholder="enter your username"><br><br>
+        <label for="">password</label>
+        <input type="password" placeholder="enter your password"><br><br>
+        <button type="submit"> Log in</button>
+     
+    
+     </form>
+     <script>
+        document.getElemntById("loginForm").addEventListener("submit", function(event)
+    {
+        event.preventDefault();
+        let username = document.getElementById("username").value.trim()
+        let password = document.getElementById("password").value.trim()
+        let message = document.getElementById("message").value.trim()
+
+        if(username === "" || password === ""){
+            message.textContent = "Please fill in all fields";
+            message.style.color ="red";
+        } else if(username === "admin" || password === "1234"){
+             message.textContent = " Admin login successfully";
+            message.style.color ="green";
+        }else{
+             message.textContent = "Welcome, " + username + "!";
+            message.style.color ="blue"
+        }
+    });
+        
+     </script>
+
+</body>
+
+</html>
+
+
+<!-- ## 🎯 Practice Exercise 1
+
+**Task:** Color Changer  
+
+**Requirements:**  
+1. Create an HTML page with a `<p>` tag and a button  
+2. When the button is clicked, change the text color of the `<p>` to a random color  
+3. Use `document.getElementById()` to find the paragraph  
+4. Use `style.color` to change the text  
+
+**Challenge:**  
+Make the background color also change randomly when the button is clicked. 
+
+//excercise 2
+## 🎯 Practice Exercise 2
+
+**Task:** Word Counter  
+
+**Requirements:**  
+1. Add a `<textarea>` for the user to type text  
+2. Show a live count of how many characters and words have been typed  
+3. Update the count every time the user types (`onkeyup` event)  
+
+**Challenge:**  
+Highlight the counter in **red** if the character count goes above 200.
+
+
+
+## 🎯 Practice Exercise 3
+
+**Task:** Simple Login Form  
+
+**Requirements:**  
+1. Create a form with `username` and `password` inputs  
+2. Add a "Login" button  
+3. When clicked, check:  
+   - If both fields are filled → show `"Welcome, [username]!"`  
+   - If any field is empty → show `"Please fill in all fields"`  
+4. Prevent the page from refreshing with `event.preventDefault()`  
+
+**Challenge:**  
+If the username is `"admin"` and the password is `"1234"`, show `"Admin login successful"`.

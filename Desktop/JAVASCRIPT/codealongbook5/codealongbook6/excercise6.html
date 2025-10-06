@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Persistent note app</h1>
+    <textarea name="" id="textInput"></textarea>
+    <div><button type="submit" onclick="saveNote()">Save Note</button>
+        <button type="submit" onclick="loadNote()">Load Note</button>
+    </div>
+    <p id="savedInfo"></p>
+    <script src="excercise6.js"></script>
+
+</body>
+
+</html>
+<!-- //excercise2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter with reset</title>
+</head>
+
+
+<body>
+  <p id="message"></p>
+<p id="firstVisit"></p>
+<div>
+    <button id="resetCounter">resetCounter</button>
+</div>  
+<script>
+    let count = 0;
+    const message = document.getElementById("message");
+    const firstLogo = document.getElementById("firstVisit");
+    const resetCounter = document.getElementById("resetCounter");
+
+    function updateMessage() {
+        message.textContent = `Button clicked ${count} times`;
+        if (count === 1) {
+            firstLogo.textContent = "This is the first time you clicked the button!";
+        } else {
+            firstLogo.textContent = "";
+        }
+    }
+
+    document.body.addEventListener("click", () => {
+        count++;
+        updateMessage();
+    });
+
+    resetCounter.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent the body click event
+        count = 0;
+        updateMessage();
+    });
+
+    // Initialize message
+    updateMessage();
+</script>
+</body>
+</html>
+<!-- 
+## 🎯 Practice Exercise 1  
+
+**Task:** Persistent Notes App  
+
+**Requirements:**  
+1. Create a `<textarea>` for typing a note  
+2. Add a "Save Note" button that saves the note to localStorage  
+3. Add a "Load Note" button that retrieves and displays the saved note  
+4. Only one note is saved at a time (latest overwrites previous)  
+
+**Challenge:**  
+Add a timestamp (`savedAt`) and display when the note was last saved. -->
