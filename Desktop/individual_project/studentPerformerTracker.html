@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="studentPerformerTracker.css">
+    <script src="studentPerformerTracker.js"defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Performer Tracker</h1>
+        <p>Add students name , track averages and performance category(Excellent, Good, Needs Help)</p>
+        <form>
+            <h2>Add Student</h2>
+            <div class=" input-field">
+                <!-- <label for="">Full Name:</label> -->
+                <input type="text" placeholder="Student Name" required id="name">
+            </div>
+            <div class="input-field"> 
+                <!-- <label for="text">Age:</label> -->
+                <input type="number" placeholder="Student Age"required id="age">
+            </div>
+            <div class=" input-field">
+                <!-- <label for="text">Class:</label> -->
+                <input type="text" placeholder="Student Class" required id="class">
+            </div>
+            <div class=" input-field">
+                <!-- <label for="image">image URL:</label> -->
+                <input type="text" placeholder ="https://example.com/photo.jpg" required id="image" >
+            </div>
+            <div class=" input-field">
+                <!-- <label for="score1">Score 1</label> -->
+                <input type="number"placeholder="Score1" required id="score1">
+            </div>
+             <div class=" input-field">
+                <!-- <label for="score2">Score 2</label> -->
+                <input type="number" placeholder="Score2"required id="score2">
+            </div>
+             <div class=" input-field">
+                <!-- <label for="score3">Score 3</label> -->
+                <input type="number"placeholder="Score3" required id="score3">
+            </div>
+
+
+            <div class="input-btn">
+                <button id="add-btn">Add student</button>
+               
+            </div>
+        </form>
+        <input type="text"  placeholder="Search student by name or class" id="search">
+        <table>
+        <thead>
+            <tr>
+                <th>Profile</th>
+                 <th>Name</th>
+                 <th>Age</th>
+                <th>Class</th>
+                <th>Scores</th>
+                <th>Average</th>
+                <th>performance</th>
+                <th>Actions</th>
+        
+            </tr>
+        </thead>
+
+        <tbody id="table-body">
+            <!-- <tr>
+                <td>Ajee </td>
+                <td>23 </td>
+                <td>grad </td>
+                <td> </td>
+
+            </tr> -->
+        </tbody>
+        </table>
+        <div>No student records yet. Add student name using the form.</div>
+        </div>  
+    </div>
+</body>
+</html>
